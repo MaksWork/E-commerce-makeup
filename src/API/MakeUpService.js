@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getRandomCategory } from "../utils/productOperations";
 
-export class MakeupService { //TODO add to product page type param
+export class MakeupService {
     static async getAll() {
         const response = await axios.get(
             "https://makeup-api.herokuapp.com/api/v1/products.json"

@@ -1,53 +1,47 @@
-import React, { useState, useEffect } from 'react'
-import ProductList from '../../components/ProductList'
-import { MakeupService } from '../../API/MakeUpService'
-import SearchPanel from '../../components/SearchPanel'
-import { useSearchProducts } from '../../hooks/useSearchProducts'
-import { useFetching } from '../../hooks/useFetching'
-import Loader from '../../components/UI/Loader/Loader'
+import React, { useState, useEffect } from "react";
+import ProductList from "../../components/ProductList";
+import { MakeupService } from "../../API/MakeUpService";
+import SearchPanel from "../../components/SearchPanel";
+import { useSearchProducts } from "../../hooks/useSearchProducts";
+import { useFetching } from "../../hooks/useFetching";
+import Loader from "../../components/UI/Loader/Loader";
 
-import './Makeup.scss'
-import { useParams } from 'react-router-dom'
+import "./Makeup.scss";
 
-const Makeup = () => { //TODO serch panel normal design
-	const params = useParams();
-	
-	let [products, setProducts] = useState([]);
-	let [searchQuery, setSearchQuery] = useState('')
+const Makeup = () => {
 
-	let [fetchProducts, isLoading, error] = useFetching(async () => {
-		const response = await MakeupService.getAllRandomCategory();
-		setProducts(response.data)
-	})
+    let [products, setProducts] = useState([]);
+    let [searchQuery, setSearchQuery] = useState("");
 
-	useEffect(() =>{
-		fetchProducts();
-	},[])
-	
-	const getSearchProducts = useSearchProducts(products, searchQuery)
-	
-	return(
-		<div className='makeup_page'>
-			<span className='product-title'>Products</span>
-			<div className='search_prList'>
-				<SearchPanel 
-					searchQuery={searchQuery} 
-					setSearchQuery={setSearchQuery} 
-					setProducts={setProducts}
-				/>
-				{isLoading === true
-					? <Loader/>
-					: <ProductList products={getSearchProducts}/>
-				}
-				{error &&
-					<div>Error : {error}</div>
-				}
-				<div className='ad'>
-					Here can be your ad
-				</div>
-			</div>
-			
-		</div>
-	)
-}
-export default Makeup
+    let [fetchProducts, isLoading, error] = useFetching(async () => {
+        const response = await MakeupService.getAllRandomCategory();
+        setProducts(response.data);
+    });
+
+    useEffect(() => {
+        fetchProducts();
+    }, []);
+
+    const getSearchProducts = useSearchProducts(products, searchQuery);
+
+    return (
+        <div className='makeup_page'>
+            <span className='product-title'>Products</span>
+            <div className='search_prList'>
+                <SearchPanel
+                    searchQuery={searchQuery}
+                    setSearchQuery={setSearchQuery}
+                    setProducts={setProducts}
+                />
+                {isLoading === true ? (
+                    <Loader />
+                ) : (
+                    <ProductList products={getSearchProducts} />
+                )}
+                {error && <div>Error : {error}</div>}
+                <div className='ad'>Here can be your ad</div>
+            </div>
+        </div>
+    );
+};
+export default Makeup;

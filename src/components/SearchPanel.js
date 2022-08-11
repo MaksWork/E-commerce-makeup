@@ -4,25 +4,12 @@ import MakeInput from "./UI/input/MakeInput";
 import MakeSelect from "./UI/select/MakeSelect";
 import { brandsData, typesData } from "../utils/categoryTagsData";
 import { MakeupService } from "../API/MakeUpService";
-import {useQuery} from '../hooks/useQuery';
-import { useNavigate, useLocation } from 'react-router-dom';
 
 import "../styles/SearchPanel.scss";
 
 
 const SearchPanel = ({ searchQuery, setSearchQuery, setProducts }) => {
-    let navigate = useNavigate();
-    let location = useLocation()
-    
     let [categories, setCategories] = useState([]);
-    let [url, setUrl] = useState(location.pathname + location.search);
-    console.log(url);
-
-    let query = useQuery().entries().next()
-    console.log(query);
-
-    // let query = useQuery();
-    // console.log(query.get('test'));
 
     const setType = async (typeName) => {
         const typeCategories = typesData.filter((type) => {
@@ -34,44 +21,16 @@ const SearchPanel = ({ searchQuery, setSearchQuery, setProducts }) => {
 		const response = await MakeupService.getAllType(typeName);
         setProducts(response.data);
 
-        if(url.includes('type')){
-            navigate('/products' + `?type=${typeName}`)
-        }
-        else if(url.includes('?')){
-            navigate( url + `&type=${typeName}`)
-        }
-        else{
-            navigate( url + `?type=${typeName}`)
-        }
-
-        setUrl(location.pathname + location.search)
     };
 
     const setCategory = async (categoryName) => {
         const response = await MakeupService.getCategory(categoryName);
         setProducts(response.data);
-
-        navigate(url + `&category=${categoryName}`)
-
-        if(url.includes('&category')){
-
-        }
-        
-        setUrl(location.pathname + location.search)
     };
 
     const setBrand = async (brand) => {
         const response = await MakeupService.getBrand(brand);
         setProducts(response.data);
-
-        if(url.includes('?')){
-            navigate(url + `&brand=${brand}`)
-        }
-        else{
-            navigate(url + `?brand=${brand}`)
-        }
-
-        setUrl(location.pathname + location.search)
     };
 
 
