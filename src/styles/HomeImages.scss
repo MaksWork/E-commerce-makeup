@@ -1,0 +1,11 @@
+.home-images{
+	display: flex;
+	img{
+		margin: 6px;
+		width: 400px;
+	}
+	.side{
+		display: flex;
+		flex-direction: column;
+	}
+}

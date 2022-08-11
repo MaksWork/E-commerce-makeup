@@ -1,0 +1,11 @@
+.make_button{
+	border: none;
+	background-color: #8A6063;
+	color: #fff;
+	font-size: 18px;
+	font-family: 'Abel', sans-serif;
+	padding: 8px;
+	&:hover{
+		cursor: pointer;
+	}
+}

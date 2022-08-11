@@ -1,0 +1,22 @@
+.footer{
+	width: 100%;
+	background-color: #282d32d7;
+	margin-top: 3rem;
+}
+.footer-content{
+	margin: 0 auto;
+	width: 70%;
+	color: #F0F9FF;
+	display: flex;
+	justify-content: space-between;
+	h4{
+		margin: 6px 0;
+	}
+	h5{
+		color: #a7aeb3;
+		margin: 3px 0;
+	}
+}
+.column{
+	text-align: left;
+}

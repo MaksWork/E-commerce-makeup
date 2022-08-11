@@ -1,0 +1,9 @@
+.search_panel{
+	display: flex;
+	flex-direction: column;
+	width: 15%;
+	
+	input, select {
+		margin-bottom: 8px;
+	}
+}
