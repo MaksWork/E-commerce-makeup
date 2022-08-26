@@ -1,9 +1,12 @@
 .product_info{
-	button{
+	a button{
 		width: 5rem;
 		float: left;
 	}
 	margin-bottom: 5rem;
+	#toCart-btn{
+		width: 10rem;
+	}
 }
 
 .product_base_info{

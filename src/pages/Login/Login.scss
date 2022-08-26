@@ -1,0 +1,16 @@
+.login_page{
+	height: 60.5vh;
+	form{
+		text-align: center;
+		width: 20%;
+		margin: 10rem auto;
+		display: flex;
+		flex-direction: column;
+		h1{
+			margin-bottom: 2rem;
+		}
+		& > *:not(h1){
+			margin-bottom: 8px;
+		}
+	}
+}

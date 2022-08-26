@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import '../styles/Product.scss';
 
-const Product = ({product}) => { //add animation on focus product
+const Product = ({product}) => {
 	return(
 		<div className='product_card'>
 			<Link to={`/products/${product.id}`}>	
@@ -27,7 +27,7 @@ const Product = ({product}) => { //add animation on focus product
 					<div className='product-card-colors'>
 					{product.product_colors &&
 						product.product_colors.map((color)=>{
-							return <div className='card-color' style={{backgroundColor: `${color.hex_value}`}}></div>
+							return <div key={Math.random()} className='card-color' style={{backgroundColor: `${color.hex_value}`}}></div>
 						})
 					}
 					</div>

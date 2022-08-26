@@ -1,0 +1,25 @@
+.account_page{
+	width: 70%;
+	margin: 2rem auto;
+	display: flex;
+	flex-direction: column;
+	button{
+		margin: 8px 14px;
+		width: 10rem;
+	}
+	margin-bottom: 52.9vh;
+}
+.acc-main-info{
+	i{
+		font-size: 12rem;
+		color: rgb(92, 92, 92);
+	}
+	display: flex;
+
+	div{
+		margin: 12px;
+		font-size: 22px;
+		display: flex;
+		flex-direction: column;
+	}
+}

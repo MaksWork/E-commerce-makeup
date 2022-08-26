@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import "../styles/ProductInfo.scss";
-import MakeButton from "./UI/MakeButton/MakeButton";
+import MakeButton from "./UI/button/MakeButton";
 import {Link} from 'react-router-dom'
+import { CartProductsContext } from "../context";
 
-const ProductInfo = ({ product }) => {
-    console.log(product);
+const ProductInfo = ({ product }) => { //TODO decomponisation if available
+
+    let {cartProducts, setCartProducts} = useContext(CartProductsContext)
+
+    const addToCart = () =>{
+        setCartProducts([...cartProducts, product])
+    }
 
     return (
         <div className="product_info">
@@ -26,18 +32,17 @@ const ProductInfo = ({ product }) => {
                 <a href={product.product_link}>
                     <MakeButton>Buy Now</MakeButton>
                 </a>
+                <MakeButton id='toCart-btn' onClick={addToCart}>Add to cart</MakeButton>
             </div>
             <hr />
             <div className='product_colors_info'>
                 {product.product_colors &&
                     product.product_colors.map((color) => {
                         return (
-                            <div className='color_container'>
+                            <div key={Math.random()} className='color_container'>
                                 <div
                                     className='color_hex'
-                                    style={{
-                                        backgroundColor: `${color.hex_value}`,
-                                    }}></div>
+                                    style={{backgroundColor: `${color.hex_value}`,}}></div>
                                 <span>{color.colour_name}</span>
                             </div>
                         );
@@ -58,7 +63,7 @@ const ProductInfo = ({ product }) => {
                     <ul>
                         {product.tag_list &&
                             product.tag_list.map((tag) => {
-                                return <li>{tag}</li>
+                                return <li key={Math.random()}>{tag}</li>
                             })}
                     </ul>
                 </span>
