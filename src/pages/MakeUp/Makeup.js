@@ -7,6 +7,7 @@ import { useFetching } from "../../hooks/useFetching";
 import Loader from "../../components/UI/Loader/Loader";
 
 import "./Makeup.scss";
+import Home from "../Home/Home";
 
 const Makeup = () => {
 
@@ -26,7 +27,8 @@ const Makeup = () => {
 
     return (
         <div className='makeup_page'>
-            <span className='product-title'>Products</span>
+            <Home></Home>
+            <hr style={{marginBottom: '5em'}}/>
             <div className='search_prList'>
                 <SearchPanel
                     searchQuery={searchQuery}

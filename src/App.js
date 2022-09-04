@@ -10,7 +10,7 @@ import Navbar from "./components/UI/Navbar/Navbar";
 import { AuthContext, CartProductsContext } from "./context";
 
 function App() {
-    let [isAuth, setAuth] = useState(false); //TODO for time true
+    let [isAuth, setAuth] = useState(false);
     let [cartProducts, setCartProducts] = useState([])
 
     return (

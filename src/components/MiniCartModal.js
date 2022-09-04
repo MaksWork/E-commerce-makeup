@@ -33,7 +33,10 @@ const ModalWindow = ({...props}) => {
 			{cartProducts.length > 0 
 				? cartProducts.map((product) => {
 					return(
-						<ModalProduct product={product}/>
+						
+						<div>
+							<ModalProduct product={product}/>
+						</div>
 					)
 				})	
 				: <h2 style={{textAlign: 'center'}}>Out of products</h2>

@@ -7,6 +7,7 @@ import Login from '../pages/Login/Login.js';
 
 const AppRouter = () => {
 	const {isAuth} = useContext(AuthContext);
+	
 	return(
 		<Routes>
 			{isAuth 

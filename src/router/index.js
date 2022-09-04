@@ -7,8 +7,7 @@ import ProductById from "../pages/ProductById/ProductById";
 import Cart from "../pages/Cart/Cart.js";
 
 export const privateRoutes = [
-	{path: '/', element: Home},
-	{path: '/products/', element: Makeup}, 
+	{path: '/', element: Makeup},
 	{path: '/products/:id', element: ProductById},
 	{path: '/about', element: About},
 	{path: '/account', element: Account},
@@ -16,6 +15,6 @@ export const privateRoutes = [
 ]
 
 export const publicRoutes = [
-	{path: '/', element: Home},
+	{path: '/', element: Makeup},
 	{path: '/login', element: Login}
 ]
